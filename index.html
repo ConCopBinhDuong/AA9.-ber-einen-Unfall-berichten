@@ -1,73 +1,326 @@
 <!DOCTYPE html>
 <html lang="de">
-<head>
-  <meta charset="UTF-8">
-  <title>Ein trauriger Unfall in Frankfurt</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to right, #f8f9fa, #e3e3e3);
-      padding: 40px;
-      margin: 0;
-    }
-    .container {
-      max-width: 800px;
-      background: white;
-      padding: 30px;
-      margin: auto;
-      border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    }
-    h1 {
-      text-align: center;
-      color: #b71c1c;
-      margin-bottom: 20px;
-    }
-    img {
-      width: 100%;
-      border-radius: 10px;
-      margin: 20px 0;
-    }
-    p {
-      font-size: 18px;
-      line-height: 1.6;
-      color: #333;
-    }
-    .footer {
-      margin-top: 30px;
-      font-size: 14px;
-      text-align: center;
-      color: #666;
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <h1>Ein trauriger Unfall in Frankfurt</h1>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Frankfurter Nachrichten - Tragischer Unfall</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap");
 
-    <img src="images/twin1.png" alt="Zwillingsbrüder Quang und Minh">
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-    <p>
-      Am 6. Juli 2025 ist ein schwerer Unfall in Frankfurt passiert. Zwei vietnamesische Zwillingsbrüder, Nguyen Duy Quang und Nguyen Quang Minh, beide 23 Jahre alt, sind gestorben. Sie sind mit einem E-Scooter gefahren und ein Auto hat sie getroffen.
-    </p>
+      body {
+        font-family: "Crimson Text", serif;
+        background-color: #f8f8f8;
+        color: #2c2c2c;
+        line-height: 1.6;
+      }
 
-    <img src="images/twin2.png" alt="Unfallstelle mit Polizei">
+      .newspaper {
+        max-width: 1000px;
+        margin: 20px auto;
+        background: white;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        border: 1px solid #ddd;
+      }
 
-    <p>
-      Der Autofahrer war auch 23 Jahre alt. Er war wahrscheinlich unter dem Einfluss von Lachgas (Nitrous Oxide). Er hat auch einen Freund der Brüder 150 Meter weit mitgeschleift. Dieser Freund wurde schwer verletzt. Die Freundin von Quang war auch dabei, aber sie wurde nicht verletzt.
-    </p>
+      .header {
+        background: linear-gradient(135deg, #1a1a1a 0%, #333 100%);
+        color: white;
+        padding: 20px;
+        text-align: center;
+        border-bottom: 3px solid #d4af37;
+      }
 
-    <p>
-      Die Brüder haben in Hamburg gelebt und eine Ausbildung gemacht. Sie wollten ein Konzert in Frankfurt besuchen. Nach dem Unfall ist der Fahrer geflüchtet, aber später zur Polizei gegangen. Jetzt hat er viele Probleme mit dem Gesetz.
-    </p>
+      .newspaper-title {
+        font-family: "Playfair Display", serif;
+        font-size: 3.5em;
+        font-weight: 900;
+        letter-spacing: 2px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        margin-bottom: 5px;
+      }
 
-    <p>
-      Die Zahnklinik, wo die Brüder gearbeitet haben, hat Geld gesammelt, um die Körper nach Vietnam zu bringen. Viele Menschen sind sehr traurig. Die Brüder waren freundlich, fleißig und hatten große Träume.
-    </p>
+      .date-line {
+        font-size: 0.9em;
+        opacity: 0.8;
+        font-style: italic;
+      }
 
-    <div class="footer">
-      Verfasst von: Nguyen Thanh Nhan – 10422110 – 24.07.2025
+      .main-content {
+        padding: 30px;
+      }
+
+      .headline {
+        font-family: "Playfair Display", serif;
+        font-size: 2.8em;
+        font-weight: 700;
+        color: #d32f2f;
+        text-align: center;
+        margin-bottom: 10px;
+        line-height: 1.2;
+        border-bottom: 2px solid #d32f2f;
+        padding-bottom: 15px;
+      }
+
+      .subheadline {
+        font-size: 1.3em;
+        color: #666;
+        text-align: center;
+        margin-bottom: 30px;
+        font-style: italic;
+      }
+
+      .article-meta {
+        background: #f5f5f5;
+        padding: 15px;
+        margin-bottom: 25px;
+        border-left: 4px solid #d4af37;
+        font-size: 0.9em;
+        color: #555;
+      }
+
+      .content-grid {
+        display: grid;
+        grid-template-columns: 1fr 300px;
+        gap: 30px;
+        margin-bottom: 30px;
+      }
+
+      .main-article {
+        text-align: justify;
+      }
+
+      .sidebar {
+        background: #f9f9f9;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+      }
+
+      .sidebar h3 {
+        font-family: "Playfair Display", serif;
+        color: #d32f2f;
+        margin-bottom: 15px;
+        font-size: 1.2em;
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 5px;
+      }
+
+      .image-container {
+        margin: 20px 0;
+        text-align: center;
+      }
+
+      .image-container img {
+        max-width: 100%;
+        height: auto;
+        border: 1px solid #ddd;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 3px;
+      }
+
+      .image-caption {
+        font-size: 0.85em;
+        color: #666;
+        font-style: italic;
+        margin-top: 8px;
+        padding: 0 20px;
+      }
+
+      .paragraph {
+        margin-bottom: 20px;
+        font-size: 1.1em;
+        text-indent: 20px;
+      }
+
+      .paragraph:first-letter {
+        font-size: 3em;
+        font-weight: bold;
+        float: left;
+        line-height: 1;
+        margin: 0 8px 0 0;
+        color: #d32f2f;
+        font-family: "Playfair Display", serif;
+      }
+
+      .highlight-box {
+        background: #fff3cd;
+        border: 1px solid #ffeaa7;
+        border-left: 4px solid #f39c12;
+        padding: 15px;
+        margin: 20px 0;
+        border-radius: 3px;
+      }
+
+      .author-info {
+        background: #e8f4fd;
+        border: 1px solid #bee5eb;
+        padding: 15px;
+        margin-top: 30px;
+        text-align: center;
+        border-radius: 5px;
+      }
+
+      .author-info strong {
+        color: #0c5460;
+      }
+
+      .divider {
+        height: 2px;
+        background: linear-gradient(
+          to right,
+          transparent,
+          #d4af37,
+          transparent
+        );
+        margin: 30px 0;
+      }
+
+      @media (max-width: 768px) {
+        .content-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .newspaper-title {
+          font-size: 2.5em;
+        }
+
+        .headline {
+          font-size: 2em;
+        }
+
+        .main-content {
+          padding: 20px;
+        }
+      }
+
+      .breaking-news {
+        background: #d32f2f;
+        color: white;
+        padding: 5px 15px;
+        font-weight: bold;
+        text-align: center;
+        font-size: 0.9em;
+        letter-spacing: 1px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="newspaper">
+      <div class="breaking-news">EILMELDUNG - BREAKING NEWS</div>
+
+      <!-- <header class="header">
+        <h1 class="newspaper-title">FRANKFURTER NACHRICHTEN</h1>
+        <div class="date-line">24. Juli 2025 • Lokale Ausgabe</div>
+      </header> -->
+
+      <main class="main-content">
+        <h1 class="headline">Ein trauriger Unfall in Frankfurt</h1>
+        <h2 class="subheadline">
+          Zwillingsbrüder Quang und Minh verlieren ihr Leben bei schwerem
+          Verkehrsunfall
+        </h2>
+
+        <div class="article-meta">
+          <strong>Frankfurt am Main</strong> - Ein tragischer Verkehrsunfall
+          erschüttert die vietnamesische Gemeinde <br /><strong>Datum:</strong>
+          6. Juli 2025 | <strong>Ort:</strong> Frankfurt am Main
+        </div>
+
+        <div class="content-grid">
+          <article class="main-article">
+            <p class="paragraph">
+              Am 6. Juli 2025 ist ein schwerer Unfall in Frankfurt passiert.
+              Zwei vietnamesische Zwillingsbrüder, Nguyen Duy Quang und Nguyen
+              Quang Minh, beide 23 Jahre alt, sind gestorben. Sie sind mit einem
+              E-Scooter gefahren und ein Auto hat sie getroffen.
+            </p>
+
+            <div class="image-container">
+              <img
+                src="images/twin1.png"
+                alt="Gedenkfoto der Zwillingsbrüder"
+              />
+              <div class="image-caption">
+                Die Zwillingsbrüder Nguyen Duy Quang und Nguyen Quang Minh (†23)
+                - zwei junge Leben voller Träume und Hoffnungen
+              </div>
+            </div>
+
+            <p class="paragraph">
+              Der Autofahrer war auch 23 Jahre alt. Er war wahrscheinlich unter
+              dem Einfluss von Lachgas (Nitrous Oxide). Er hat auch einen Freund
+              der Brüder 150 Meter weit mitgeschleift. Dieser Freund wurde
+              schwer verletzt. Die Freundin von Quang war auch dabei, aber sie
+              wurde nicht verletzt.
+            </p>
+
+            <div class="highlight-box">
+              <strong>Unfallhergang:</strong> Der Fahrer stand unter dem
+              Einfluss von Lachgas und flüchtete zunächst vom Unfallort, stellte
+              sich jedoch später der Polizei.
+            </div>
+
+            <p class="paragraph">
+              Die Brüder haben in Hamburg gelebt und eine Ausbildung gemacht.
+              Sie wollten ein Konzert in Frankfurt besuchen. Nach dem Unfall ist
+              der Fahrer geflüchtet, aber später zur Polizei gegangen. Jetzt hat
+              er viele Probleme mit dem Gesetz.
+            </p>
+
+            <div class="image-container">
+              <img src="images/twin2.png" alt="Unfallstelle mit Polizei" />
+              <div class="image-caption">
+                Unfallstelle in Frankfurt - Polizei sichert Spuren und ermittelt
+                zum Unfallhergang
+              </div>
+            </div>
+
+            <p class="paragraph">
+              Die Zahnklinik, wo die Brüder gearbeitet haben, hat Geld
+              gesammelt, um die Körper nach Vietnam zu bringen. Viele Menschen
+              sind sehr traurig. Die Brüder waren freundlich, fleißig und hatten
+              große Träume.
+            </p>
+          </article>
+
+          <aside class="sidebar">
+            <h3>Unfall-Details</h3>
+            <ul style="list-style-type: none; padding: 0">
+              <li><strong>Datum:</strong> 6. Juli 2025</li>
+              <li><strong>Ort:</strong> Frankfurt am Main</li>
+              <li><strong>Opfer:</strong> 2 Zwillingsbrüder (†23)</li>
+              <li><strong>Verletzte:</strong> 1 schwer verletzt</li>
+              <li><strong>Fahrzeug:</strong> E-Scooter</li>
+              <li><strong>Verursacher:</strong> 23-jähriger Autofahrer</li>
+            </ul>
+
+            <h3 style="margin-top: 25px">Hintergrund</h3>
+            <p style="font-size: 0.9em">
+              Die vietnamesischen Zwillinge wohnten in Hamburg und machten dort eine Ausbildung. Sie besuchten Frankfurt, um ein Konzert zu
+              besuchen.
+            </p>
+
+            <h3 style="margin-top: 25px">Rechtliche Folgen</h3>
+            <p style="font-size: 0.9em">
+              Der Fahrer hat Lachgas verwendet und den Unfall verursacht. Zwei Personen ist gestorben. Die Polizei hat den Fall geprüft.
+            </p>
+          </aside>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="author-info">
+          <p><strong>Verfasst von:</strong> Nguyen Thanh Nhan</p>
+          <p><strong>Studiennummer:</strong> 10422110</p>
+          <p><strong>Datum:</strong> 24.07.2025</p>
+        </div>
+      </main>
     </div>
-  </div>
-</body>
+  </body>
 </html>
